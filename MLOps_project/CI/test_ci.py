@@ -1,4 +1,7 @@
 class test_class :
+    """"
+    test fittizi per pipeline CI
+    """
     
     def test_1(self) :
         x=1
