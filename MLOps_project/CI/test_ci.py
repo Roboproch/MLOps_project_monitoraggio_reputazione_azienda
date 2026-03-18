@@ -1,5 +1,5 @@
 class TestClass :
-    """"
+    """
     test fittizi per pipeline CI
     """
     
