@@ -1,4 +1,4 @@
-class test_class :
+class TestClass :
     """"
     test fittizi per pipeline CI
     """
