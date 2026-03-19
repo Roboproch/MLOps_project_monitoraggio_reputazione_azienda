@@ -1,12 +1,12 @@
+import modello
+
 class TestClass :
     """
-    test fittizi per pipeline CI
+    test sul modello per pipeline CI
     """
     
-    def test_1(self) :
-        x=1
-        assert x==1
+    def check_trivial_output(self) :
+        assert modello.sentiment_task("neutral")[0]["label"]=="neutral" and modello.sentiment_task("awesome")[0]["label"]=="positive" and modello.sentiment_task("terrible")[0]["label"]=="negative"
 
-    def test_2(self) :
-        y=10
-        assert y>5
+    def train_set_bigger_than_test_set(self) :
+        assert modello.df_train.shape[0]>modello.df_test.shape[0]

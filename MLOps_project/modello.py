@@ -1,11 +1,25 @@
+# Utilities
 from transformers import pipeline
-sentiment_task = pipeline("sentiment-analysis", model="cardiffnlp/twitter-roberta-base-sentiment-latest", tokenizer="cardiffnlp/twitter-roberta-base-sentiment-latest")
-# print(sentiment_task("Covid cases are increasing fast!"))
-
 from datasets import load_dataset
+import pandas as pd
+
+# Import del modello da Hugging Face
+sentiment_task = pipeline("sentiment-analysis", model="cardiffnlp/twitter-roberta-base-sentiment-latest", tokenizer="cardiffnlp/twitter-roberta-base-sentiment-latest")
+
+# Import di un dataset da Hugging Face
 ds = load_dataset("SetFit/tweet_sentiment_extraction")
-# il dataset viene splittato da load_dataset
-# stampa il primo record del set di train
-print(ds['train'][0])
-# stampa il primo record del set di test
-print(ds['test'][0])
+# Il dataset viene splittato autometicamente in train set e test set da load_dataset
+# Per comodità trasformo i dataset in dataframe di pandas
+df_train = ds['train'].to_pandas()
+df_test = ds['test'].to_pandas()
+
+X_train = df_train['text'].values
+y_train = df_train['label_text'].values
+X_test = df_test['text'].values
+y_test = df_test['label_text'].values
+
+# Estraggo il modello
+model = sentiment_task.model
+
+# Ri-addestro il modello sul dataset importato
+model.fit(X_train,y_train)
