@@ -1,4 +1,4 @@
-from modello import *
+import modello
 
 class TestClass :
     """
