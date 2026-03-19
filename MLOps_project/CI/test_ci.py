@@ -1,4 +1,5 @@
-import modello
+from src.modello import sentiment_task 
+from src.dataset import *
 
 class TestClass :
     """
@@ -6,7 +7,7 @@ class TestClass :
     """
     
     def check_trivial_output(self) :
-        assert modello.sentiment_task("neutral")[0]["label"]=="neutral" and modello.sentiment_task("awesome")[0]["label"]=="positive" and modello.sentiment_task("terrible")[0]["label"]=="negative"
+        assert sentiment_task("neutral")[0]["label"]=="neutral" and sentiment_task("awesome")[0]["label"]=="positive" and sentiment_task("terrible")[0]["label"]=="negative"
 
     def train_set_bigger_than_test_set(self) :
-        assert modello.df_train.shape[0]>modello.df_test.shape[0]
+        assert df_train.shape[0]>df_test.shape[0]
