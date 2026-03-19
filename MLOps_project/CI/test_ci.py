@@ -1,4 +1,4 @@
-from MLOps_project.modello import *
+from modello import *
 
 class TestClass :
     """
