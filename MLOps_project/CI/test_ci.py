@@ -6,8 +6,8 @@ class TestClass :
     test sul modello per pipeline CI
     """
     
-    def check_trivial_output(self) :
+    def test_trivial_output(self) :
         assert sentiment_task("neutral")[0]["label"]=="neutral" and sentiment_task("awesome")[0]["label"]=="positive" and sentiment_task("terrible")[0]["label"]=="negative"
 
-    def train_set_bigger_than_test_set(self) :
+    def test_train_set_bigger_than_test_set(self) :
         assert df_train.shape[0]>df_test.shape[0]
