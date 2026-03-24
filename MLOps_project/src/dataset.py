@@ -1,14 +1,19 @@
 from datasets import load_dataset
 import pandas as pd
 
-# Import di un dataset da Hugging Face
-ds = load_dataset("SetFit/tweet_sentiment_extraction")
-# Il dataset viene splittato autometicamente in train set e test set da load_dataset
-# Per comodità trasformo i dataset in dataframe di pandas
-df_train = ds['train'].to_pandas()
-df_test = ds['test'].to_pandas()
+class LoadDataset :
+    """
+    Classe utilizzata per scaricare il dataset e rendere disponibili set di train e set di test
+    """
 
-X_train = df_train['text'].values
-y_train = df_train['label_text'].values
-X_test = df_test['text'].values
-y_test = df_test['label_text'].values
+    # Import del da Hugging Face
+    ds = load_dataset("SetFit/tweet_sentiment_extraction")
+
+    # Per comodità trasformo il dataset in un dataframe di pandas
+    df_train = ds['train'].to_pandas()
+    df_test = ds['test'].to_pandas()
+    df = pd.concat([df_train,df_test])
+
+    # Identifico feature e target
+    X = df['text'].values
+    y = df['label_text'].values

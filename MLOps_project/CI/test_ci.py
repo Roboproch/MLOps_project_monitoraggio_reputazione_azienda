@@ -1,13 +1,16 @@
-from src.modello import sentiment_task 
-from src.dataset import *
+# Utilities
+from src.modello import Modello 
+from src.dataset import LoadDataset
+from sklearn.metrics import accuracy_score
+
+model = Modello()
+ld = LoadDataset()
 
 class TestClass :
     """
-    test sul modello per pipeline CI
-    """
+    unit test sul modello per pipeline CI
+    """ 
     
     def test_trivial_output(self) :
-        assert sentiment_task("neutral")[0]["label"]=="neutral" and sentiment_task("awesome")[0]["label"]=="positive" and sentiment_task("terrible")[0]["label"]=="negative"
-
-    def test_train_set_bigger_than_test_set(self) :
-        assert df_train.shape[0]>df_test.shape[0]
+        # Controllo del funzionamento del modello con frasi banali
+        assert model.predict("neutral")=="neutral" and model.predict("awesome")=="positive" and model.predict("terrible")=="negative"
