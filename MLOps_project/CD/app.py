@@ -1,5 +1,5 @@
 # Utilities
-from src.modello import Modello
-from src.dataset import LoadDataset
+from MLOps_project.src.modello import Modello
+from MLOps_project.src.dataset import LoadDataset
 
 print("Hello world!")
