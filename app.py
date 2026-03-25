@@ -14,7 +14,6 @@ y_pred = []
 valori = ['negative', 'neutral', 'positive']
 
 def predict_tweet(tweet,esito_atteso) :
-    global X, y, y_pred
     X.append(tweet)
     y.append(esito_atteso)
     y_new = model.predict(tweet)[0]
