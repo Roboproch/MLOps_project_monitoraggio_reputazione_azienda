@@ -8,7 +8,7 @@ class LoadDataset :
 
     # Import del da Hugging Face
     # Prendo solo 200 record per problemi di timeout in fase di caricamento su HuggingFace di un dataset troppo grosso
-    ds = load_dataset("SetFit/tweet_sentiment_extraction", split="train").take(200)
+    ds = load_dataset("SetFit/tweet_sentiment_extraction", split="train").take(10)
 
     # Per comodità trasformo il dataset in un dataframe di pandas
     df = ds.to_pandas()
