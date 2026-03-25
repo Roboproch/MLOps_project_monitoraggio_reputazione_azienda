@@ -67,5 +67,5 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git push --force https://Roboproch:$HF_TOKEN@huggingface.co/spaces/Roboproch/MLOPS_PROJECT_MONITORAGGIO_REPUTAZIONE_AZIENDA main
+          git push --force https://Roboproch:$HF_TOKEN@huggingface.co/spaces/Roboproch/MLOps_project main
       
