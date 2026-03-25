@@ -20,4 +20,4 @@ while check_loop :
         print("EXIT")
         check_loop = False
     else :
-        print(f"Sentiment: {model.predict(tweet)}")
+        print(f"Sentiment: {model.predict(tweet)[0]}")

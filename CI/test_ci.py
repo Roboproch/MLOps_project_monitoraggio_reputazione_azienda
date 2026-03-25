@@ -13,4 +13,4 @@ class TestClass :
     
     def test_trivial_output(self) :
         # Controllo del funzionamento del modello con frasi banali
-        assert model.predict("neutral")=="neutral" and model.predict("awesome")=="positive" and model.predict("terrible")=="negative"
+        assert model.predict("neutral")[0]=="neutral" and model.predict("awesome")[0]=="positive" and model.predict("terrible")[0]=="negative"
