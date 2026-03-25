@@ -1,3 +1,4 @@
+print("TESTTTTT")
 # Utilities
 from src.modello import Modello
 from src.dataset import LoadDataset
