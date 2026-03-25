@@ -9,20 +9,18 @@ dataset = LoadDataset()
 
 X = dataset.X
 y = dataset.y
-y_pred = model.predict(X)
-
-acc = f"{accuracy_score(y, y_pred)}"
+y_pred = []
 
 valori = ['negative', 'neutral', 'positive']
 
 def predict_tweet(tweet,esito_atteso) :
-    global acc
+    global X, y, y_pred
     X.append(tweet)
     y.append(esito_atteso)
     y_new = model.predict(tweet)[0]
     y_pred.append(y_new)
-    acc = f"{accuracy_score(y, y_pred)}"
-    return y_new,acc
+    acc_new = f"{accuracy_score(y, y_pred)}"
+    return y_new,acc_new
 
 demo = gr.Interface(
     fn=predict_tweet,
@@ -31,16 +29,6 @@ demo = gr.Interface(
     flagging_mode = 'never'
 )
 
-demo.launch()
-
-#y_pred=model.predict(X)
-
-#check_loop = True
-
-#while check_loop :
-#   tweet = input("Inserire tweet:")
-#  if tweet=="" :
-#        print("EXIT")
-#        check_loop = False
-#    else :
-#        print(f"Sentiment: {model.predict(tweet)[0]}")
+if __name__ == "__main__":
+    y_pred = model.predict(X)
+    demo.launch()
