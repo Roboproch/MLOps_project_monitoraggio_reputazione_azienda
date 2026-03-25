@@ -9,7 +9,7 @@ dataset = LoadDataset()
 
 X = dataset.X
 y = dataset.y
-y_pred = []
+y_pred = model.predict(X)
 
 valori = ['negative', 'neutral', 'positive']
 
@@ -29,5 +29,4 @@ demo = gr.Interface(
 )
 
 if __name__ == "__main__":
-    # y_pred = model.predict(X)
     demo.launch()

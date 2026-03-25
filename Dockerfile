@@ -1,7 +1,7 @@
 #dockerfile
 
 # Versione di Python
-FROM python:3.12.1
+FROM python:3.12-slim
 
 # Set della working directory  
 WORKDIR /app
