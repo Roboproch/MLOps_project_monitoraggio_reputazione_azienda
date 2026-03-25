@@ -2,6 +2,7 @@
 from src.modello import Modello 
 from src.dataset import LoadDataset
 from sklearn.metrics import accuracy_score
+import torch
 
 model = Modello()
 ld = LoadDataset()
