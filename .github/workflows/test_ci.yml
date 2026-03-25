@@ -40,6 +40,6 @@ jobs:
         pytest
   
   job_call_cd: # Sblocca la pipeline CD se tutto va OK
-    needs: job_test 
+    needs: test_ci 
     uses: ./.github/workflows/CD_docker.yml 
     secrets: inherit # Passa il token 
