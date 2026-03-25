@@ -17,7 +17,7 @@ class TestClass :
     
     def test_accuracy(self) :
         # Controllo che l'accuracy sia almeno 0.5
-        X = ld.dataset.X
-        y = ld.dataset.y
+        X = ld.X
+        y = ld.y
         y_pred = model.predict(X)
         assert accuracy_score(y, y_pred)>=0.5
