@@ -2,22 +2,33 @@
 from src.modello import Modello
 from src.dataset import LoadDataset
 from sklearn.metrics import accuracy_score
+import gradio as gr
 
 model = Modello()
 dataset = LoadDataset()
 
-# Considero solo una parte del dataset per motivi prestazionali
-X = dataset.X[:200].tolist()
-y = dataset.y[:200].tolist()
+X = dataset.X
+y = dataset.y
 
-y_pred=model.predict(X)
+def predict(data) :
+    return model.predict(data)
 
-check_loop = True
+demo = gr.Interface(
+    fn=predict,
+    input='text_in',
+    output='text_out'
+)
 
-while check_loop :
-    tweet = input("Inserire tweet:")
-    if tweet=="" :
-        print("EXIT")
-        check_loop = False
-    else :
-        print(f"Sentiment: {model.predict(tweet)[0]}")
+demo.launch()
+
+#y_pred=model.predict(X)
+
+#check_loop = True
+
+#while check_loop :
+#   tweet = input("Inserire tweet:")
+#  if tweet=="" :
+#        print("EXIT")
+#        check_loop = False
+#    else :
+#        print(f"Sentiment: {model.predict(tweet)[0]}")

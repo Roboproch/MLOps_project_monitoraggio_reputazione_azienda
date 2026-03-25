@@ -17,3 +17,7 @@ class LoadDataset :
     # Identifico feature e target
     X = df['text'].values
     y = df['label_text'].values
+
+    # Considero solo una parte del dataset per motivi prestazionali
+    X = X[:200].tolist()
+    y = y[:200].tolist()
