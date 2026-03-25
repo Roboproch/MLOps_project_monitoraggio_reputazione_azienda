@@ -6,3 +6,4 @@ pandas
 scikit-learn
 datasets
 gradio
+numpy<2.0.0
