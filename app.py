@@ -29,5 +29,5 @@ demo = gr.Interface(
 )
 
 if __name__ == "__main__":
-    y_pred = model.predict(X)
+    # y_pred = model.predict(X)
     demo.launch()
