@@ -1,5 +1,9 @@
 # Utilities
+import sys
 import torch
+sys.modules['torch'] = torch 
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
 from src.modello import Modello 
 from src.dataset import LoadDataset
 from sklearn.metrics import accuracy_score
