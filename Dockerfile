@@ -4,7 +4,7 @@
 FROM python:3.12.1
 
 # copia della directory in /app
-COPY ./MLOps_project /app
+COPY . /app
 
 # set della working directory  
 WORKDIR /app
