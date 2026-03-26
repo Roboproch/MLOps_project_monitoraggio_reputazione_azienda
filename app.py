@@ -29,6 +29,9 @@ if __name__ == "__main__":
     y = dataset.y
     y_pred = model.predict(X)
 
+    # Stampa accuracy iniziale
+    print(f"Accuracy iniziale: {accuracy_score(y, y_pred)}")
+
     # Definisce l'interfaccia grafica di Gradio
     # Prende in input un testo (tweet) e il sentiment predetto (quest'ultimo scelto da un menu a tendina)
     # Restituisce l'esito predetto e la nuova accuracy calcolata sul dataset aggiornato
