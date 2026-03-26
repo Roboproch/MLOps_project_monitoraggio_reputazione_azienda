@@ -4,11 +4,15 @@ from src.dataset import LoadDataset
 from sklearn.metrics import accuracy_score
 import gradio as gr
 
-model = Modello()
-dataset = LoadDataset()
+#model = Modello()
+#dataset = LoadDataset()
+model = None
+dataset = None
 
-X = dataset.X
-y = dataset.y
+X = None
+y = None
+#X = dataset.X
+#y = dataset.y
 # y_pred = model.predict(X)
 y_pred   = ['negative', 'neutral', 'positive','negative', 'neutral', 'positive','negative', 'neutral', 'positive','positive']
 
@@ -22,13 +26,21 @@ def predict_tweet(tweet,esito_atteso) :
     acc_new = f"{accuracy_score(y, y_pred)}"
     return y_new,acc_new
 
-demo = gr.Interface(
-    fn=predict_tweet,
-    inputs=[gr.Textbox(label="Tweet"),gr.Dropdown(choices=valori,label="Esito atteso")],
-    outputs=[gr.Textbox(label="Previsione modello"),gr.Textbox(label="Ricalcolo accuracy")],
-    flagging_mode = 'never'
-)
+
 
 if __name__ == "__main__":
-    print("DEBUG")
+    print("Avvio caricamento componenti...")
+    model = Modello()
+    dataset = LoadDataset()
+    X = dataset.X
+    y = dataset.y
+
+    demo = gr.Interface(
+        fn=predict_tweet,
+        inputs=[gr.Textbox(label="Tweet"),gr.Dropdown(choices=valori,label="Esito atteso")],
+        outputs=[gr.Textbox(label="Previsione modello"),gr.Textbox(label="Ricalcolo accuracy")],
+        flagging_mode = 'never'
+    )
+
+    print("Lancio")
     demo.launch()
