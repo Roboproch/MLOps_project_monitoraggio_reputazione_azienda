@@ -2,7 +2,9 @@ import torch
 from transformers import pipeline
 
 class Modello :
-    # Gestisce l'import del modello da Hugging Face e implementa un metodo per la predizione del sentiment
+    """
+    Gestisce l'import del modello da Hugging Face e implementa un metodo per la predizione del sentiment
+    """
 
     def __init__(self) :
         # Import del modello da Hugging Face
