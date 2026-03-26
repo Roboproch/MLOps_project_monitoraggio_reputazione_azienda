@@ -12,14 +12,8 @@ class LoadDataset :
         self.ds = load_dataset("SetFit/tweet_sentiment_extraction", split="train", streaming=True).take(10)
 
         # Per comodità trasformo il dataset in un dataframe di pandas
-        #self.df = pd.DataFrame(list(self.ds))
+        self.df = pd.DataFrame(list(self.ds))
 
         # Identifico feature e target
-        #self.X = self.df['text'].tolist()
-        #self.y = self.df['label_text'].tolist()
-
-        self.X = []
-        self.y = []
-        for example in self.ds:
-            self.X.append(example['text'])
-            self.y.append(example['label_text'])
+        self.X = self.df['text'].tolist()
+        self.y = self.df['label_text'].tolist()
