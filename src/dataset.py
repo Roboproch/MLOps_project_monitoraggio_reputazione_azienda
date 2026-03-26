@@ -11,7 +11,8 @@ class LoadDataset :
     ds = load_dataset("SetFit/tweet_sentiment_extraction", split="train", streaming=True).take(10)
 
     # Per comodità trasformo il dataset in un dataframe di pandas
-    df = ds.to_pandas()
+    # df = ds.to_pandas()
+    df = pd.DataFrame(list(ds))
 
     # Identifico feature e target
     X = df['text'].values
